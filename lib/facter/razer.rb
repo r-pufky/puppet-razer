@@ -20,3 +20,14 @@ Facter.add(:razer) do
     razer
   end
 end
+
+Facter.add(:razer) do
+  confine :kernel => :linux
+  setcode do
+    razer = {
+      'chroma_sdk_server' => false,
+      'chroma_sdk_service' => false,
+      'game_scanner_service' => false,
+    }
+  end
+end
